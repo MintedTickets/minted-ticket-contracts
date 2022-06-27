@@ -1,6 +1,6 @@
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -33,7 +33,7 @@ interface IERC165 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -70,7 +70,7 @@ abstract contract ERC165 is IERC165 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -145,7 +145,7 @@ library Strings {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -177,7 +177,7 @@ abstract contract Context {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -273,7 +273,7 @@ interface IAccessControl {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -406,7 +406,7 @@ interface IERC1155 is IERC165 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -636,7 +636,7 @@ library Address {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -666,7 +666,7 @@ interface IERC1155MetadataURI is IERC1155 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -732,7 +732,7 @@ interface IERC1155Receiver is IERC165 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -967,7 +967,7 @@ library SafeMath {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -1198,7 +1198,7 @@ abstract contract AccessControl is Context, IAccessControl, ERC165 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -1668,7 +1668,7 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketNFT.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketNFT.sol
 */
 
 // MintedTicket NFT token
