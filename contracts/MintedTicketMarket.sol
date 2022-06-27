@@ -74,8 +74,8 @@ contract MintedTicketMarket is Ownable, ERC1155Holder {
 		pairs[currentPairId].pair_id = currentPairId;
 		pairs[currentPairId].collection = _collection;
 		pairs[currentPairId].token_id = _token_id;
-		pairs[currentPairId].creator = nftCollection.creatorOf(_token_id);
-        pairs[currentPairId].creatorFee = nftCollection.royalties(_token_id);
+		pairs[currentPairId].creator = getCreator(_collection, _token_id);
+        pairs[currentPairId].creatorFee = getRoyalties(_collection, _token_id);
 		pairs[currentPairId].owner = msg.sender;		
 		pairs[currentPairId].price = _price;
 		pairs[currentPairId].tokenAdr = _tokenAdr;	
@@ -151,6 +151,24 @@ contract MintedTicketMarket is Ownable, ERC1155Holder {
 		totalSwapped = totalSwapped.add(1);
 
         emit Swapped(msg.sender, pairs[_id], _amount);		
+    }
+
+	function getRoyalties(address collection, uint256 _tokenID) view private returns(uint256) {
+        IMintedTicketNFT nft = IMintedTicketNFT(collection); 
+        try nft.royalties(_tokenID) returns (uint256 value) {
+            return value;
+        } catch {
+            return 0;
+        }
+    }
+
+	function getCreator(address collection, uint256 _tokenID) view private returns(address) {
+        IMintedTicketNFT nft = IMintedTicketNFT(collection); 
+        try nft.creatorOf(_tokenID) returns (address creatorAddress) {
+            return creatorAddress;
+        } catch {
+            return address(0x0);
+        }
     }
 
 }
