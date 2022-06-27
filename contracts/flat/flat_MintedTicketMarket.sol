@@ -1,6 +1,6 @@
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -33,7 +33,7 @@ interface IERC165 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -70,7 +70,7 @@ abstract contract ERC165 is IERC165 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -136,7 +136,7 @@ interface IERC1155Receiver is IERC165 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -163,7 +163,7 @@ abstract contract ERC1155Receiver is ERC165, IERC1155Receiver {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -195,7 +195,7 @@ abstract contract Context {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -298,7 +298,7 @@ interface IBEP20 {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -342,7 +342,7 @@ contract ERC1155Holder is ERC1155Receiver {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -426,7 +426,7 @@ abstract contract Ownable is Context {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -791,7 +791,7 @@ library EnumerableSet {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
             
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
@@ -1024,7 +1024,7 @@ library SafeMath {
 
 
 /** 
- *  SourceUnit: g:\work\MintedTicket\contracts\contracts\MintedTicketMarket.sol
+ *  SourceUnit: d:\GitWork\07-JustinWorking\MintedTickets\minted-ticket-contracts\contracts\MintedTicketMarket.sol
 */
 
 // MintedTicket Market contract
@@ -1103,8 +1103,8 @@ contract MintedTicketMarket is Ownable, ERC1155Holder {
 		pairs[currentPairId].pair_id = currentPairId;
 		pairs[currentPairId].collection = _collection;
 		pairs[currentPairId].token_id = _token_id;
-		pairs[currentPairId].creator = nftCollection.creatorOf(_token_id);
-        pairs[currentPairId].creatorFee = nftCollection.royalties(_token_id);
+		pairs[currentPairId].creator = getCreator(_collection, _token_id);
+        pairs[currentPairId].creatorFee = getRoyalties(_collection, _token_id);
 		pairs[currentPairId].owner = msg.sender;		
 		pairs[currentPairId].price = _price;
 		pairs[currentPairId].tokenAdr = _tokenAdr;	
@@ -1180,6 +1180,24 @@ contract MintedTicketMarket is Ownable, ERC1155Holder {
 		totalSwapped = totalSwapped.add(1);
 
         emit Swapped(msg.sender, pairs[_id], _amount);		
+    }
+
+	function getRoyalties(address collection, uint256 _tokenID) view private returns(uint256) {
+        IMintedTicketNFT nft = IMintedTicketNFT(collection); 
+        try nft.royalties(_tokenID) returns (uint256 value) {
+            return value;
+        } catch {
+            return 0;
+        }
+    }
+
+	function getCreator(address collection, uint256 _tokenID) view private returns(address) {
+        IMintedTicketNFT nft = IMintedTicketNFT(collection); 
+        try nft.creatorOf(_tokenID) returns (address creatorAddress) {
+            return creatorAddress;
+        } catch {
+            return address(0x0);
+        }
     }
 
 }
