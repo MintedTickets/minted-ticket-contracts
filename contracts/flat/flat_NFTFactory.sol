@@ -1772,7 +1772,6 @@ contract MintedTicketNFT is ERC1155, AccessControl {
 		Change & Get Item Information
 	 */
     function addItem(string memory _tokenURI, uint256 royalty, uint256 supply) public returns (uint256){
-        require( isPublic, "Collection is not published");
         require(royalty <= FEE_MAX_PERCENT, "too big royalties");
         require(royalty >= FEE_MIN_PERCENT, "too small royalties");
         require( hasRole(MINTER_ROLE, msg.sender) || isPublic,
